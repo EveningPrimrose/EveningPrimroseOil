@@ -11,7 +11,7 @@
     		if ($year!="")
     		{
     			echo "not blank<br>";
-    			$yeararr=split(' ', $year);
+    			$yeararr=explode(' ', $year);
 
     		}
     		else
