@@ -23,10 +23,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('login.html');
 	}
 
-	public function test()
-	{
-		echo "test";
-	}
 }
 
 /* End of file welcome.php */
