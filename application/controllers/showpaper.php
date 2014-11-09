@@ -10,12 +10,23 @@
             $username=$this->session->userdata('username');
 
             $this->load->database();
-    		$sql="select * from ".$username." where headline = '".$papername."'";
+    		$sql="select * from ".$username." where papernumber = '".$papername."'";
     		$res=$this->db->query($sql);
     		$resu=$res->result();
-    		var_dump($resu);
+    		
     		//分配参数
-    		$this->load->view('showinformation.html',$data);
+            $this->load->library('session');
+            $username=$this->session->userdata('username');
+
+            $data['username']=$username;
+            $data['papernumber']=$resu[0]->papernumber;
+            $data['type']=$resu[0]->type;
+            $data['location']=$resu[0]->location;
+            //echo $data['type'];
+            if ($data['type']=='references')
+                $this->load->view('showinformation2.html',$data);
+            else
+    		    $this->load->view('showinformation.html',$data);
 
     	}
 

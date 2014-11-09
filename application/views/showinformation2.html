@@ -30,14 +30,19 @@
     <HR WIDTH=120% SIZE=8 ALIGN=LEFT NOSHADE>
 
       <div class = "information">
-        //我是thesis详细信息！
+        //我是references详细信息！
       </div>
 
 <div class="well">
 
-        <a type="button" class="btn btn-success btn-lg btn-block" href="javascript:" onclick="window.open('/seproject/<?php echo $location?>.pdf')">Open</a>  
+        <a type="button" class="btn btn-success btn-lg btn-block" href="javascript:" onclick="http://<?php echo $location?>">Open</a>   
+        <!--(需改动)按钮无法实现功能-->
+
+        <a href = "http://<?php echo $location?>" target="_Blank">Open</a>
        <hr>
         <a type="button" class="btn btn-primary btn-lg btn-block" href="/seproject/index.php/user/search" >Back</a>  
+        <!--(需改动)返回查询结果页面-->
+
   </div>
 
 

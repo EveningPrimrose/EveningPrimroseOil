@@ -2,8 +2,11 @@
     class Papermanage extends CI_Controller{
 
     	public function upload(){
-    		$config['upload_path']='./uploads/';
+            
+            
+    		$config['upload_path']='./thesis/';
     		$config['allowed_types']='pdf|doc|txt|docx';
+            //$config['file_name']=$nid;
     		$this->load->library('upload',$config);
     		$this->upload->do_upload("upp");
     		$this->load->library('session');
