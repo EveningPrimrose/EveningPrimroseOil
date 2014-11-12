@@ -10,3 +10,5 @@
     		$this->load->view('changepwd.html',$data);
     	}
     }
+
+    

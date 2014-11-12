@@ -1,4 +1,5 @@
 <?php
+
     class Papermanage extends CI_Controller{
 
     	public function upload(){
