@@ -28,7 +28,7 @@
 
 
     		$this->load->database();
-    		$sql="select * from ".$username." where headline like '%".$title."%' and author like '%".$author."%' and keywords like '%".$keywords."%' and year>".$year1." and year<".$year2;
+    		$sql="select * from papers where headline like '%".$title."%' and author like '%".$author."%' and keywords like '%".$keywords."%' and year>".$year1." and year<".$year2;
     		$res=$this->db->query($sql);
     		$resu=$res->result();
     		foreach ($resu as $key => $value) {
