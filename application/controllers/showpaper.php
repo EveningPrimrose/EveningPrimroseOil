@@ -1,5 +1,4 @@
 <?php
-
     class Showpaper extends CI_Controller{
 
     	public function showinformation(){
