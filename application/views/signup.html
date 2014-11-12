@@ -9,19 +9,20 @@
 
     <title>论文管理平台注册</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/signin.css" rel="stylesheet">
+    <link href="/seproject/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/seproject/css/signin.css" rel="stylesheet">
 
-    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="/seproject/js/ie-emulation-modes-warning.js"></script>
   </head>
 
   <body>
 
     <div class="container">
-      <form class="form-signin" role="form">
+      <form class="form-signin" role="form" >
     <div>
-     <form class="form-horizontal">
+     <form class="form-horizontal" action ="/seproject/index.php/user/signupcheck" method="post" name="signupmessage">
     <fieldset>
+
       <div id="legend" class="">
         <legend class="">注册信息</legend>
       </div>
@@ -32,7 +33,7 @@
           <!-- Text input-->
           <label class="control-label" for="input01">用户名称</label>
           <div class="controls">
-            <input placeholder="请输入你的昵称" class="input-xlarge" type="text">
+            <input placeholder="请输入你的昵称" class="input-xlarge" type="text" name="signname">
             <p class="help-block">该昵称将用于登陆和显示</p>
           </div>
         </div>
@@ -42,7 +43,7 @@
           <!-- Text input-->
           <label class="control-label" for="input01">邮件地址</label>
           <div class="controls">
-            <input placeholder="请输入你的邮件地址" class="input-xlarge" type="text">
+            <input placeholder="请输入你的邮件地址" class="input-xlarge" type="text" name="signemail">
             <p class="help-block"></p>
           </div>
         </div>
@@ -52,7 +53,7 @@
           <!-- Text input-->
           <label class="control-label" for="input01">登陆密码</label>
           <div class="controls">
-            <input placeholder="请输入你的密码" class="input-xlarge" type="text">
+            <input placeholder="请输入你的密码" class="input-xlarge" type="text" name ="signpwd">
             <p class="help-block">  请使用字母，数字，和符号的组合</p>
           </div>
         </div>
@@ -62,7 +63,7 @@
           <!-- Text input-->
           <label class="control-label" for="input01">确认密码</label>
           <div class="controls">
-            <input placeholder="请再次输入上面的密码" class="input-xlarge" type="text">
+            <input placeholder="请再次输入上面的密码" class="input-xlarge" type="text" name ="signpwd2">
             <p class="help-block"></p>
           </div>
         </div>
@@ -72,7 +73,7 @@
 
           <!-- Button -->
           <div class="controls">
-            <button class="btn btn-primary">立即注册</button>
+            <button class="btn btn-primary" formaction ="/seproject/index.php/user/signupcheck" formmethod="post" type="submit">立即注册</button>
           </div>
         </div>
 
@@ -87,9 +88,9 @@
 
       <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
 
-    <script src="js/jquery-2.1.1.min.js"></script>    
-    <script src="js/bootstrap.min.js"></script>    
+    <script src="/seproject/js/jquery-2.1.1.min.js"></script>    
+    <script src="/seproject/js/bootstrap.min.js"></script>    
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/seproject/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
