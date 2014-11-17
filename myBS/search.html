@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">    
+
+    <link href="dtree/dtree.css"  rel="stylesheet"  type="text/css" />
+    <script type="text/javascript" src="dtree/dtree.js"></script>
   </head>   
 
 
@@ -29,29 +32,51 @@
 
 
 <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
-    
-<div class="well">
+        <div class="col-sm-4 well">
+              <div class="dtree container">
+              <p><h3>系统论文目录</h3></p>
+              <p><a href="javascript: d.openAll();"><h5>open all</a> | <a href="javascript: d.closeAll();">closs all</h5></a></p>
 
-<form name="searchform" method="post" action="search.php">
+              <script type="text/javascript">
+              <!--
+              d = new dTree('d');
+              d.add(0,-1,' ');
+              d.add(1,0,'Node 1','manage.html');
+              d.add(2,0,'Node 2','manage.html');
+              d.add(3,1,'Node 1.1','manage.html');
+              d.add(4,0,'Node 3','manage.html');
+              d.add(5,3,'Node 1.1.1','manage.html');
+              d.add(7,0,'Node 4','manage.html');
+              d.add(8,1,'Node 1.2','manage.html');
+              d.add(9,8,'Node 1.2.1','manage.html');
+              d.config.folderLinks=false;  
+              document.write(d);
+              //-->
+              </script>
+              </div>
+        </div>
 
-  <table width="600" border="0" align="center" cellpadding="4" cellspacing="2" class="tableborder">
+        <div class="col-sm-8">
+        <form name="searchform" method="post" action="search.php">
 
-    <input type="hidden" name="tbname" value="news">
-    <input type="hidden" name="tempid" value="1">
-    <input type="hidden" name="andor" value="and">
+        <table width="600" border="0" align="center" cellpadding="4" cellspacing="2" class="tableborder">
 
-    <tr class="header">
-      <td colspan="2"><h2>输入论文信息</h2></td>
-    </tr>
+        <input type="hidden" name="tbname" value="news">
+        <input type="hidden" name="tempid" value="1">
+        <input type="hidden" name="andor" value="and">
 
-    <tr bgcolor="#FFFFFF">
-      <td width="100">标题：</td>
-      <td width="400">
-          <input type="hidden" name="show[]" value="title">
-          <input type="hidden" name="hh[]" value="LK">
-          <input name="keyboard[]" type="text">
-      </td>
-    </tr>
+        <tr class="header">
+              <td colspan="2"><h2>输入论文信息</h2></td>
+        </tr>
+
+        <tr bgcolor="#FFFFFF">
+        <td width="100">标题：</td>
+        <td width="400">
+            <input type="hidden" name="show[]" value="title">
+            <input type="hidden" name="hh[]" value="LK">
+            <input name="keyboard[]" type="text">
+        </td>
+        </tr>
 
     <tr bgcolor="#FFFFFF">
       <td>作者：</td>
