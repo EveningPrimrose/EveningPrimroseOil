@@ -27,6 +27,7 @@
                 $this->load->library('session');
                 $this->session->set_userdata('username',$username);
                 $this->session->set_userdata('password',$password);
+                //$this->session->set_userdata('email',$email);
     			$this->home();
     		}
     		else
@@ -92,8 +93,18 @@
 
         public function manage()
         {
+            $this->load->database();
+            $sql="select * from types";
+            $res=$this->db->query($sql);
+            $types=$res->result();
+    //        var_dump($typetable);
+        //    foreach ($typetable as $key => $value) {
+        //        # code...
+        //    }
+
             $this->load->library('session');
             $data['username']=$this->session->userdata('username');
+            $data['types']=$types;
             $this->load->view('manage.html',$data);
         }
 
