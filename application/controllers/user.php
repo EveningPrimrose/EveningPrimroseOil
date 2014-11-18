@@ -84,8 +84,17 @@
         }
         public function search()
         {
+            $this->load->database();
+            $sql="select * from types";
+            $res=$this->db->query($sql);
+            $types=$res->result();
+
+
+
             $this->load->library('session');
             $data['username']=$this->session->userdata('username');
+            $data['types']=$types;
+            $data['typenumber']=count($types);
             $this->load->view('search.html',$data);
         }
 

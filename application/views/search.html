@@ -39,20 +39,24 @@
               <p><a href="javascript: d.openAll();"><h5>open all</a> | <a href="javascript: d.closeAll();">closs all</h5></a></p>
 
               <script type="text/javascript">
-              <!--
+              
               d = new dTree('d');
               d.add(0,-1,' ');
-              d.add(1,0,'Node 1','manage.html');
-              d.add(2,0,'Node 2','manage.html');
-              d.add(3,1,'Node 1.1','manage.html');
-              d.add(4,0,'Node 3','manage.html');
-              d.add(5,3,'Node 1.1.1','manage.html');
-              d.add(7,0,'Node 4','manage.html');
-              d.add(8,1,'Node 1.2','manage.html');
-              d.add(9,8,'Node 1.2.1','manage.html');
+              
+              <?php foreach ($types as $value) :?>
+              d.add("<?php echo $value->typeid?>","<?php echo $value->parenttype?>","<?php echo $value->typename?>",'manage.html');
+              <?php endforeach ;?>
+    //          d.add(1,0,'Node 1','manage.html');
+    //          d.add(2,0,'Node 2','manage.html');
+    //          d.add(3,1,'Node 1.1','manage.html');
+    //          d.add(4,0,'Node 3','manage.html');
+    //          d.add(5,3,'Node 1.1.1','manage.html');
+    //          d.add(7,0,'Node 4','manage.html');
+    //          d.add(8,1,'Node 1.2','manage.html');
+    //          d.add(9,8,'Node 1.2.1','manage.html');
               d.config.folderLinks=false;  
               document.write(d);
-              //-->
+              
               </script>
               </div>
 </div>
