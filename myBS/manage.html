@@ -11,8 +11,8 @@
     <link href="dtree/dtree.css"  rel="stylesheet"  type="text/css" />
     <script type="text/javascript" src="dtree/dtree.js"></script>
 
-        <script language="JavaScript">
-<!--
+<script language="JavaScript">
+
 function CreateSelect(_FormName,_SName,_SValue,_Ds,_AllOptionStr,ShowType)
 {
 if (_FormName=="")
@@ -158,8 +158,9 @@ document.writeln("window.attachEvent(\"onload\","+_SName1+"SetValue)");
 document.writeln("\/\/-->");
 document.writeln("<\/script>");
 }
-//-->
+
 </script>
+<!--
 <script language="JavaScript">
 
 var AllStr1 = ""
@@ -170,11 +171,8 @@ var AllStr1 = ""
 +"||信息科技{{"
 +"计算机硬件技术((电子计算机 ^微型计算机"
 +"**计算机软件及计算机应用((程序设计、软件工程^操作系统 ^数据库理论及系统"
-
-
-
 </script>
-
+-->
 
 
  </head>   
@@ -235,82 +233,72 @@ var AllStr1 = ""
     <div class="tab-pane fade" id="home2">
     <p><center>注：类别定义为三层！</center></p><!--<<biaoqian 2     >>-->
 
-    <form class="form-horizontal container" role="form">
+    <div class="container">
+    	<form class="form-horizontal" role="form">
+  			<div class="form-group">
+    			<label for="input1" class="col-sm-4 control-label">添加第1类</label>
+    			<div class="col-sm-8">
+      				<input type="text" class="form-control" id="input1" placeholder="">
+    			</div>
+  			</div>
+  
 
-        <div class="form-group row">
-            <label class="col-sm-4 control-label">类别1</label>
-            <div class="controls">
-                            <select class="col-sm-4 input-xlarge">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option></select>
-                    </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-4 controls checkbox">
-                    <label>
-                    <input type="checkbox" id="blankCheckbox" value="option1">
-            </label>
-                        <input class="form-control" type="text" placeholder="未找到类别？输入添加类别">
-                    </div>
-        </div>
+  			<div class="form-group">
+    			<div class="col-sm-offset-4 col-sm-8">
+      			<button type="submit" class="btn btn-info">确认</button>
+    			</div>
+  			</div>
+		</form>
 
-        <HR WIDTH=100% SIZE=4 ALIGN=LEFT NOSHADE>
+		<HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
+    	<form class="form-horizontal" role="form">
+  			<div class="form-group">
+    			<label for="input2" class="col-sm-4 control-label">添加第2类</label>
+    			<div class="col-sm-8">
+      				<input type="text" class="form-control" id="input1" placeholder="">
+    			</div>
+  			</div>
 
-        <div class="form-group row">
-            <label class="col-sm-4 control-label">类别2</label>
-                <div class="controls">
-                            <select class="col-sm-4 input-xlarge">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option></select>
-                    </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-4 controls checkbox">
-                    <label>
-                    <input type="checkbox" id="blankCheckbox" value="option2">
-            </label>
-                        <input class="form-control" type="text" placeholder="未找到类别？输入添加类别">
-                    </div>
-        </div>
+  			<div class="form-group">
+    			<label for="input21" class="col-sm-4 control-label">所属父类</label>
+    			<div class="col-sm-8">
+      				<input type="text" class="form-control" id="input21" placeholder="">
+    			</div>
+  			</div> 
 
-        <HR WIDTH=100% SIZE=4 ALIGN=LEFT NOSHADE>
+  			<div class="form-group">
+    			<div class="col-sm-offset-4 col-sm-8">
+      			<button type="submit" class="btn btn-info">确认</button>
+    			</div>
+  			</div>
+		</form>
 
-        <div class="form-group row">
-            <label class="col-sm-4 control-label">类别3</label>
-            <div class="controls">
-                            <select class="col-sm-4 input-xlarge">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option></select>
-                    </div>   
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-4 controls checkbox">
-                    <label>
-                    <input type="checkbox" id="blankCheckbox" value="option3">
-            </label>
-                        <input class="form-control" type="text" placeholder="未找到类别？输入添加类别">
-                    </div>
-        </div>
+		<HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
+    	<form class="form-horizontal" role="form">
+  			<div class="form-group">
+    			<label for="input3" class="col-sm-4 control-label">添加第3类</label>
+    			<div class="col-sm-8">
+      				<input type="text" class="form-control" id="input3" placeholder="">
+    			</div>
+  			</div>
+  
 
+   			<div class="form-group">
+    			<label for="input32" class="col-sm-4 control-label">所属父类</label>
+    			<div class="col-sm-8">
+      				<input type="text" class="form-control" id="input32" placeholder="">
+    			</div>
+  			</div>
 
-        <HR WIDTH=100% SIZE=4 ALIGN=LEFT NOSHADE>
-        <div class="form-group row">
-            <div class="row">
-                <label class="col-sm-4 control-label"></label>
-                <button type="submit" class="col-sm-0 btn btn-primary">确认添加</button>
-            </div>
-        </div>
-    </form>
-    
+  			<div class="form-group">
+    			<div class="col-sm-offset-4 col-sm-8">
+      			<button type="submit" class="btn btn-info">确认</button>
+    			</div>
+  			</div>
+
+		</form>
+	</div>
+
     </div>
 
     <div class="tab-pane fade" id="home3">
@@ -376,7 +364,7 @@ var AllStr1 = ""
                         </div>
                         <div class="col-sm-4"></div>
                     </div>
-
+                    <!--
                     <div class="control-group row">
                         <label class="col-sm-4 control-label">所属类别</label>
                         <div class="col-sm-8 controls">
@@ -385,7 +373,19 @@ var AllStr1 = ""
                 </script>
                 </div>
             </div>
+            -->
             
+            	<div class="control-group row">
+            			<label class="col-sm-4 control-label">添加所属类别</label>
+            			<div class="controls">
+                            <input placeholder="" class="col-sm-1 input-xlarge" type="text">
+                            <div class="col-sm-1"><h4>/</h4></div>
+                            <input placeholder="" class="col-sm-1 input-xlarge" type="text">
+                            <div class="col-sm-1"><h4>/</h4></div>
+                            <input placeholder="" class="col-sm-1 input-xlarge" type="text">
+                        </div>
+                        <div class="col-sm-3"></div>
+            	</div>
             <div class="control-group row">
                 <div class="col-sm-4"></div>
                 <button type="submit" class="col-sm-4 btn btn-info">上传</button>
