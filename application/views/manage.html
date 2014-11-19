@@ -162,6 +162,13 @@ document.writeln("<\/script>");
 </script>
 <script language="JavaScript">
 
+
+var AllStr2=""
++"基础科学2{{"
++"数学2 ((数学概论2 ^初、高等数学2 ^计算数学^概率论 、数理统计"
++"**物理学 ((理论物理学^声学 ^光学 ^热学与物质分子运动论";
+
+
 var AllStr1 = ""
 +"基础科学{{"
 +"数学 ((数学概论 ^初、高等数学 ^计算数学^概率论 、数理统计"
@@ -323,7 +330,7 @@ var AllStr1 = ""
     <p><center>注：类别定义为三层！</center></p><!--<<biaoqian 3>>-->
 
 
-        <form class="form-horizontal  container" role="form">
+        <form class="form-horizontal  container" role="form" action='/seproject/index.php/papermanage/upload'>
       
                 <div class="control-group row">
                     <!-- Text input-->
@@ -347,7 +354,7 @@ var AllStr1 = ""
 
                 <div class="control-group row">
                     <!-- Text input-->
-                        <label class="col-sm-4 control-label" for="input01">来源</label>
+                        <label class="col-sm-4 control-label" for="input01">刊物</label>
                         <div class="controls">
                             <input placeholder="" class="col-sm-4 input-xlarge" type="text">
                             <p class="help-block"></p>

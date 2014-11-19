@@ -11,6 +11,11 @@
     		$this->upload->do_upload("upp");
     		$this->load->library('session');
             $data['username']=$this->session->userdata('username');
+            //--------------------------------------ADD
+            $this->load->database();
+            $sql="insert into papers (owner,type1,type2,type3,headline,author,origin,keywords,summary,year,month，type,location) values ('".$username."','".$type1."','".$type2."','".$type3."','".$headline."','".$author."','".$origin."','".$keywords."','".$summary."',".$year.",".$month.",'".$type."','".$location."') ";
+            $res=$this->db->query($sql);
+            //-------------------------------------
             $this->load->view('manage.html',$data);
 
     	}
@@ -22,8 +27,8 @@
             $data['username']=$this->session->userdata('username');
             $this->load->database();
             //改为添加语句
-    		//$sql="select * from ".$username." where headline like '%".$title."%' and author like '%".$author."%' and keywords like '%".$keywords."%' and year>".$year1." and year<".$year2;
-    		//$res=$this->db->query($sql);
+    		$sql="insert";
+    		$res=$this->db->query($sql);
     	}
 
 
@@ -33,7 +38,16 @@
             $data['username']=$this->session->userdata('username');
             $this->load->database();
             //改为删除语句
-    		//$sql="select * from ".$username." where headline like '%".$title."%' and author like '%".$author."%' and keywords like '%".$keywords."%' and year>".$year1." and year<".$year2;
-    		//$res=$this->db->query($sql);
+    		$sql="delete from papers where papernumber = ".$papernmuber;
+    		$res=$this->db->query($sql);
     	}
+
+        public function revise(){
+            $this->load->library('session');
+            $data['username']=$this->session->userdata('username');
+            $this->load->database();
+            //改为修改语句
+            $sql="update papers set type1='".$type1."'type2='".$type2."'type3='".$type3."'headline='".$headline."'author='".$author."'origin='".$origin."'keywords='".$keywords."'summary='".$summary."'year=".$year."month=".$month.;
+            $res=$this->db->query($sql);
+        }
     }

@@ -10,7 +10,7 @@
             $username=$this->session->userdata('username');
 
             $this->load->database();
-    		$sql="select * from ".$username." where papernumber = '".$papername."'";
+    		$sql="select * from papers where papernumber = '".$papername."'";
     		$res=$this->db->query($sql);
     		$resu=$res->result();
     		
