@@ -29,13 +29,380 @@
 
     <HR WIDTH=120% SIZE=8 ALIGN=LEFT NOSHADE>
 
-      <div class = "information">
+      <div class = "information container">
         
+      <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+          <div class="panel panel-info">
+            <!-- Default panel contents -->
+                <div class="panel-heading">论文详细信息</div>
+                <div class="panel-body">
+                <p></p>
+                </div>
+            <!-- Table -->
+            <table class="table table-hover table-bordered">
+                <tr class="warning"><td>标题</td></tr>
+                <tr><td><?php echo $headline?></td></tr>
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal01">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal01" tabindex="-1" role="dialog" aria-labelledby="myModalLabel01" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel01">修改标题</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" action ="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>/headline" method="post">
+                    <div class="form-group">
+                        <label for="input01" class="col-sm-2 control-label">新标题</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input01" placeholder="" name="value">
+                        </div>
+                    </div>
+
+                     <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      
+                      <button type="submit" class="btn btn-info">确认修改</button>
+                    
+                  </div>
+
+
+                    </form>
+
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+
+
+                <tr class="warning"><td>作者</td></tr>
+                <tr><td><?php echo $author?></td></tr>
+
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal02">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal02" tabindex="-1" role="dialog" aria-labelledby="myModalLabel02" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel02">修改作者</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" action ="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>/author" method="post">
+                    <div class="form-group">
+                        <label for="input01" class="col-sm-2 control-label">新作者</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input01" placeholder="" name ="value">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-info">确认修改</button>
+                  </div>
+                    </form>
+
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+
+
+                <tr class="warning"><td>发表刊物</td></tr>
+                <tr><td><?php echo $origin?></td></tr>
+
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal09">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal09" tabindex="-1" role="dialog" aria-labelledby="myModalLabel09" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel09" >修改发表刊物</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" action ="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>/origin" method="post">
+                    <div class="form-group">
+                        <label for="input01" class="col-sm-2 control-label">新刊物名</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input01" placeholder="" name="value">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-info">确认修改</button>
+                  </div>
+                    </form>
+
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+
+
+
+
+
+
+                <tr class="warning"><td>出版年份</td></tr>
+                <tr><td><?php echo $year?></td></tr>
+
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal03">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal03" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel03">修改出版年</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" action ="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>/year" method="post">
+                    <div class="form-group">
+                        <label for="input01" class="col-sm-2 control-label">新出版年</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input01" placeholder="" name="value">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-info">确认修改</button>
+                  </div>
+                    </form>
+
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+
+                <tr class="warning"><td>出版月份</td></tr>
+                <tr><td><?php echo $month?></td></tr>
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal04">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal04" tabindex="-1" role="dialog" aria-labelledby="myModalLabel04" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel04">修改出版月</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" action ="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>/month" method="post">
+                    <div class="form-group">
+                        <label for="input01" class="col-sm-2 control-label">新出版月</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input01" placeholder="" name="value">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-info">确认修改</button>
+                  </div>
+                    </form>
+
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+                <tr class="warning"><td>关键字</td></tr>
+                <tr><td><?php echo $keywords?></td></tr>
+
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal05">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal05" tabindex="-1" role="dialog" aria-labelledby="myModalLabel05" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel05">修改关键字</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" action ="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>/keywords" method="post">
+                    <div class="form-group">
+                        <label for="input01" class="col-sm-2 control-label">新关键字</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input01" placeholder="" name="value">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-info">确认修改</button>
+                  </div>
+                    </form>
+                    
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+
+                <tr class="warning"><td>摘要</td></tr>
+                <tr><td><?php echo $summary?></td></tr>
+
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal06">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal06" tabindex="-1" role="dialog" aria-labelledby="myModalLabel06" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel06">修改摘要</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" action ="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>/summary" method="post">
+                    <div class="form-group">
+                        <label for="input01" class="col-sm-2 control-label">新摘要</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" id="input01" placeholder="" name="value">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="submit" class="btn btn-info">确认修改</button>
+                  </div>
+                    </form>
+
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+
+
+                <tr class="warning"><td>所属类别</td></tr>
+                <tr>
+                <td><?php echo $type1?><br><?php echo $type2?><br><?php echo $type3?><br></td>
+                </tr>
+
+      <tr>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal07">修改</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal07" tabindex="-1" role="dialog" aria-labelledby="myModalLabel07" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel07">修改信息</h4>
+                  </div>
+
+                  <div class="modal-body">
+
+
+
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <button type="button" class="btn btn-info">确认修改</button>
+                  </div>
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+
+                <tr class="warning"><td></td></tr>
+                <tr class="default">
+                <td>
+                    <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal08">删除论文</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal08" tabindex="-1" role="dialog" aria-labelledby="myModalLabel08" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel08">删除论文</h4>
+                  </div>
+
+                  <div class="modal-body">
+                      <center><h2>确认删除该论文??</h2></center>
+                      
+
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                      <a href="/seproject/index.php/papermanage/delete/<?php echo $papernumber?>">
+                      <button type="button" class="btn btn-info">OK</button>
+                    </a>
+                  </div>
+              </div>
+            </div>
+        </div>
+        </td>
+      </tr>
+                </td>
+                </tr>
+
+            </table>
+          </div>
+          </div>
+          <div class="col-sm-2"></div>
+      </div>
+
       </div>
 
 <div class="well">
 
-        <a type="button" class="btn btn-success btn-lg btn-block" href="javascript:" onclick="window.open('/seproject/<?php echo $location?>.pdf')">Open</a>  
+        <a type="button" class="btn btn-success btn-lg btn-block" href="javascript:" onclick="window.open('/seproject/thesis/<?php echo $location?>')">Open</a>  
        <hr>
         <a type="button" class="btn btn-primary btn-lg btn-block" href="/seproject/index.php/user/search" >Back</a>  
 </div>

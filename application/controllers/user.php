@@ -13,7 +13,7 @@
             
     		$this->load->database();
 
-    		$sql="select password from users where username = '".$username."'";
+    		$sql="select * from users where username = '".$username."'";
     		$getpwd=$this->db->query($sql);
     		$pwd=$getpwd->result();
         
@@ -27,7 +27,7 @@
                 $this->load->library('session');
                 $this->session->set_userdata('username',$username);
                 $this->session->set_userdata('password',$password);
-                //$this->session->set_userdata('email',$email);
+                $this->session->set_userdata('email',$pwd[0]->email);
     			$this->home();
     		}
     		else
@@ -76,6 +76,25 @@
             $this->load->view('signup.html',$data);
         }
 
+
+        public function changepwd(){
+            $this->load->library('session');
+            $data['username']=$this->session->userdata('username');
+
+            $newpwd=$this->input->post('newpwd');
+
+            $this->load->database();
+            $sql="update users set password ='".$newpwd."' where username='".$data['username']."'";
+            $res=$this->db->query($sql);
+
+            $this->session->set_userdata('password',$newpwd);
+            $this->usermessage();
+        }
+
+
+
+
+
         public function home()
         {
             $this->load->library('session');
@@ -122,7 +141,7 @@
             $this->load->library('session');
             $data['username']=$this->session->userdata('username');
             $data['password']=$this->session->userdata('password');
-            
+            $data['email']=$this->session->userdata('email');
             $this->load->view('usermessage.html',$data);
         }
     }
