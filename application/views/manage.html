@@ -330,13 +330,13 @@ var AllStr1 = ""
     <p><center>注：类别定义为三层！</center></p><!--<<biaoqian 3>>-->
 
 
-        <form class="form-horizontal  container" role="form" action='/seproject/index.php/papermanage/upload'>
+        <form  class="form-horizontal  container"  action='/seproject/index.php/papermanage/upload' method ="post"enctype="multipart/form-data">
       
                 <div class="control-group row">
                     <!-- Text input-->
                         <label class="col-sm-4 control-label" for="input01">论文标题</label>
                         <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name ="headline">
                             <p class="help-block"></p>
                         </div>
                         <div class="col-sm-4"></div>
@@ -346,7 +346,28 @@ var AllStr1 = ""
                     <!-- Text input-->
                         <label class="col-sm-4 control-label" for="input01">作者</label>
                         <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name ="author">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
+                <div class="control-group row">
+                    <!-- Text input-->
+                        <label class="col-sm-4 control-label" for="input01">关键字</label>
+                        <div class="controls">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="keywords">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
+
+                <div class="control-group row">
+                    <!-- Text input-->
+                        <label class="col-sm-4 control-label" for="input01">摘要</label>
+                        <div class="controls">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="summary">
                             <p class="help-block"></p>
                         </div>
                         <div class="col-sm-4"></div>
@@ -356,7 +377,7 @@ var AllStr1 = ""
                     <!-- Text input-->
                         <label class="col-sm-4 control-label" for="input01">刊物</label>
                         <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="origin">
                             <p class="help-block"></p>
                         </div>
                         <div class="col-sm-4"></div>
@@ -366,7 +387,7 @@ var AllStr1 = ""
                     <!-- Text input-->
                         <label class="col-sm-4 control-label" for="input01">出版年份</label>
                         <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="year">
                             <p class="help-block"></p>
                         </div>
                         <div class="col-sm-4"></div>
@@ -376,7 +397,40 @@ var AllStr1 = ""
                     <!-- Text input-->
                         <label class="col-sm-4 control-label" for="input01">出版月份</label>
                         <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="month">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
+
+                    <div class="control-group row">
+                    <!-- Text input-->
+                        <label class="col-sm-4 control-label" for="input01">第一分类</label>
+                        <div class="controls">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="type1">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
+
+                    <div class="control-group row">
+                    <!-- Text input-->
+                        <label class="col-sm-4 control-label" for="input01">第二分类</label>
+                        <div class="controls">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="type2">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
+
+                    <div class="control-group row">
+                    <!-- Text input-->
+                        <label class="col-sm-4 control-label" for="input01">第三分类</label>
+                        <div class="controls">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="type3">
                             <p class="help-block"></p>
                         </div>
                         <div class="col-sm-4"></div>
@@ -386,26 +440,38 @@ var AllStr1 = ""
                         <label class="col-sm-4 control-label">添加论文</label>
                         <!-- File Upload -->
                         <div class="controls">
-                            <input class="col-sm-4 input-file" id="fileInput" type="file">
+                            <input class="col-sm-4 input-file"  type="file" name="upp">
                         </div>
                         <div class="col-sm-4"></div>
                     </div>
 
-                    <div class="control-group row">
+ <!--                   <div class="control-group row">
                         <label class="col-sm-4 control-label">所属类别</label>
                         <div class="col-sm-8 controls">
                 <script  language="JavaScript">
                     CreateSelect("","S_13|S_23|S_33","","第1类别@|第2类别@|第3类别@",AllStr1,0);
-                </script>
-                </div>
-            </div>
+                </script>   
+                </div>      
+            </div>     -->
             
             <div class="control-group row">
                 <div class="col-sm-4"></div>
-                <button type="submit" class="col-sm-4 btn btn-info">上传</button>
+                <button type="submit"  class="col-sm-4 btn btn-info" >上传</button>
                 <div class="col-sm-4"></div>
             </div>
         </form>
+ <!--       <form   action='/seproject/index.php/papermanage/uploads' method ="post" enctype="multipart/form-data">
+            
+                <input  type="file" name="upps"/>
+                        
+
+
+                <input type="submit"  value="submit" >
+                
+
+
+
+        </form>-->
 
     </div>
    </div>
