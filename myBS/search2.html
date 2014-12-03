@@ -6,7 +6,33 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">    
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">   
+
+    <script type="text/javascript">
+	function exportToExcel(tableid){
+       var curTbl = document.getElementById(tableid);
+       var oXL;
+       try{
+                oXL = new ActiveXObject("Excel.Application"); //创建AX对象excel 
+       }catch(e){
+                alert("无法启动Excel!\n\n如果您确信您的电脑中已经安装了Excel，"+"那么请调整IE的安全级别。\n\n具体操作：\n\n"+"工具 → Internet选项 → 安全 → 自定义级别 → 对没有标记为安全的ActiveX进行初始化和脚本运行 → 启用");
+                return false;
+       }
+       var oWB = oXL.Workbooks.Add(); //获取workbook对象
+       var oSheet = oWB.ActiveSheet;//激活当前sheet 
+       var sel = document.body.createTextRange();
+       sel.moveToElementText(curTbl); //把表格中的内容移到TextRange中
+       sel.select(); //全选TextRange中内容 
+       sel.execCommand("Copy");//复制TextRange中内容 
+       oSheet.Paste();//粘贴到活动的EXCEL中
+       oXL.Visible = true; //设置excel可见属性
+       var fname = oXL.Application.GetSaveAsFilename("将table导出到excel.xls", "Excel Spreadsheets (*.xls), *.xls");
+       oWB.SaveAs(fname);
+       oWB.Close();
+       oXL.Quit();
+        }
+
+    </script>
   </head>   
 
 <body>  
@@ -24,7 +50,7 @@
 
  <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
 
-    <table class="table table-hover table-bordered table-striped">
+    <table class="table table-hover table-bordered table-striped" name= "TableExcel">
         <thead>
             <tr>
                 <th>序列</th>
@@ -46,9 +72,8 @@
             </tr>
         </tbody> 
     </table>
- 
-
-
+ 	
+ 	<input type="button" onclick="javascript:method1('TableExcel');" value="第一种方法导入到EXCEL"> 
 
 <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
       <center>
@@ -58,6 +83,7 @@
 <!-- JS-->
 <script src="js/jquery-2.1.1.min.js"></script>    
 <script src="js/bootstrap.min.js"></script>    
+ 
 
 </body>    
 </html> 

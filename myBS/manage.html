@@ -37,7 +37,8 @@
     <ul id="myTab" class="nav nav-tabs">
         	<li class="active"><a href="#home1" data-toggle="tab">论文分类</a></li>
     	<!--<li><a href="#home2" data-toggle="tab">自定义类别</a></li>-->
-    	<li><a href="#home3" data-toggle="tab">论文上传</a></li>
+    	<li><a href="#home2" data-toggle="tab">论文上传</a></li>
+    	<li><a href="#home3" data-toggle="tab">论文评分</a></li>
     </ul>
 
 
@@ -237,7 +238,7 @@
 
     </div>
     -->
-    <div class="tab-pane fade" id="home3">
+    <div class="tab-pane fade" id="home2">
     <p><center>注：类别定义为三层！</center></p><!--<<biaoqian 3>>-->
 
         <form class="form-horizontal  container" role="form">
@@ -329,10 +330,54 @@
                 	<button type="submit" class="col-sm-4 btn btn-info">上传</button>
                 	<div class="col-sm-4"></div>
             </div>
+        	</form>
+ 
+    	</div>
 
-        </form>
-    
-    </div>
+    	<div class="tab-pane fade" id="home3">
+
+
+		<form class="form-inline container" role="form">
+		<center>
+  		<div class="form-group">
+    			<label class="sr-only">Name</label>
+    			<p class="form-control-static">待查作者</p>
+  		</div>
+  		<div class="form-group">
+    			<label for="inputname" class="sr-only">Input</label>
+    			<input type="text" class="form-control" id="inputname" >
+  		</div>
+  		
+  			<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">查询</button>
+  		</center>
+
+  		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+
+  		<div class="modal-dialog modal-sm">
+    			<div class="modal-content">
+
+      			<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        				<h4 class="modal-title" id="myModalLabel">分数如下:</h4>
+      			</div>
+      			<div class="modal-body">
+       		 	...
+      			</div>
+      			<div class="modal-footer">
+        				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      			</div>
+
+    			</div>
+    		</div>
+  		</div>
+		</div>
+
+
+		</form>	
+    	</div>
+
     </div>
 
     <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
