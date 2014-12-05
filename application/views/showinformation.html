@@ -48,8 +48,14 @@
              	<tr class="warning"><td>标题</td></tr>
             		<tr><td><input type="text" name="headline" value="<?php echo $headline?>" > </td></tr>
 
-                	<tr class="warning"><td>作者</td></tr>
+                	<tr class="warning"><td>第一作者</td></tr>
                 	<tr><td><input type="text" name="author" value="<?php echo $author?>"  > </td></tr>
+
+                  <tr class="warning"><td>第二作者</td></tr>
+                  <tr><td><input type="text" name="authortwo" value="<?php echo $authortwo?>"  > </td></tr>
+
+                  <tr class="warning"><td>第三作者</td></tr>
+                  <tr><td><input type="text" name="authorthree" value="<?php echo $authorthree?>"  > </td></tr>
 
                 	<tr class="warning"><td>发表刊物</td></tr>
                 	<tr><td><input type="text" name="origin" value="<?php echo $origin?>" ></td></tr>
@@ -72,12 +78,57 @@
                   <!-- 修改所属分类 -->
                 	<tr class="warning"><td>所属类别</td></tr>
                 	<tr><td>
-                		<input type="text" name="test81" value="<?php echo $type1?>" >
-                		<br>
-                		<input type="text" name="test82" value="<?php echo $type2?>" >
-                		<br>
-                		<input type="text" name="test83" value="<?php echo $type3?>" >
-                		<br>
+                		<select class="col-sm-4 input-xlarge" name ="typeid">
+                        <?php foreach ($types as $value) :?>
+                        
+                        <?php if (($value->typelevel==3) && ($value->typename==$type3)) :?>
+                        
+                        <option value="<?php echo $value->typeid?>" selected>
+                            <?php foreach ($types as $pvalue) :?>
+                            <?php if (($pvalue->typeid)==($value->parenttype)) :?>
+                            
+
+                            <?php foreach ($types as $ppvalue) :?>
+                            <?php if (($ppvalue->typeid)==($pvalue->parenttype)) :?>
+                            <?php echo $ppvalue->typename?>
+                            <?php echo "-"?>
+                        <?php endif;?>
+                        <?php endforeach;?>
+
+                        <?php echo $pvalue->typename?>
+                            <?php echo "-"?>
+
+                        <?php endif;?>
+                        <?php endforeach;?>
+                        <?php echo $value->typename?></option>
+                    <?php endif;?>
+
+
+
+
+
+                        <?php if ($value->typelevel==3 && $value->typename!=$type3) :?>
+                        <option value="<?php echo $value->typeid?>">
+                            <?php foreach ($types as $pvalue) :?>
+                            <?php if (($pvalue->typeid)==($value->parenttype)) :?>
+                            
+
+                            <?php foreach ($types as $ppvalue) :?>
+                            <?php if (($ppvalue->typeid)==($pvalue->parenttype)) :?>
+                            <?php echo $ppvalue->typename?>
+                            <?php echo "-"?>
+                        <?php endif;?>
+                        <?php endforeach;?>
+
+                        <?php echo $pvalue->typename?>
+                            <?php echo "-"?>
+
+                        <?php endif;?>
+                        <?php endforeach;?>
+                        <?php echo $value->typename?></option>
+                    <?php endif;?>
+                    <?php endforeach;?>
+                            </select>
                 	</td></tr>
 
       		<tr>

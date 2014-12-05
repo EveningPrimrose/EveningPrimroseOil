@@ -75,10 +75,7 @@
             $sql="select * from types";
             $res=$this->db->query($sql);
             $types=$res->result();
-    //        var_dump($typetable);
-        //    foreach ($typetable as $key => $value) {
-        //        # code...
-        //    }
+    
 
             $this->load->library('session');
             $data['username']=$this->session->userdata('username');
