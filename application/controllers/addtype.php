@@ -32,12 +32,10 @@
     		$this->load->database();
 
     		$typename=$this->input->post('typename');
-    		$parentname=$this->input->post('parentname');
-    		$sql="select typeid from types where typename='".$parentname."'";
-    		$res=$this->db->query($sql);
-    		$parentid=$res->result();
+    		$parentid=$this->input->post('parentid');
     		
-    		$sql="insert into types (typename,parenttype,typelevel) values ('".$typename."',".$parentid[0]->typeid.",2)";
+    		
+    		$sql="insert into types (typename,parenttype,typelevel) values ('".$typename."',".$parentid.",2)";
     		$res=$this->db->query($sql);
 
 
@@ -64,12 +62,10 @@
     		$this->load->database();
 
     		$typename=$this->input->post('typename');
-    		$parentname=$this->input->post('parentname');
-    		$sql="select typeid from types where typename='".$parentname."'";
-    		$res=$this->db->query($sql);
-    		$parentid=$res->result();
+    		$parentid=$this->input->post('parentid');
     		
-    		$sql="insert into types (typename,parenttype,typelevel) values ('".$typename."',".$parentid[0]->typeid.",3)";
+    		
+    		$sql="insert into types (typename,parenttype,typelevel) values ('".$typename."',".$parentid.",3)";
     		$res=$this->db->query($sql);
 
 

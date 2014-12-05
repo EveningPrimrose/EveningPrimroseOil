@@ -209,9 +209,9 @@ var AllStr1 = ""
     <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
     
     <ul id="myTab" class="nav nav-tabs">
-        <li class="active"><a href="#home1" data-toggle="tab">分类目录</a></li>
-    <li><a href="#home2" data-toggle="tab">自定义类别</a></li>
-    <li><a href="#home3" data-toggle="tab">论文上传</a></li>
+        <li class="active"><a href="#home1" data-toggle="tab">论文分类</a></li>
+    <li><a href="#home2" data-toggle="tab">论文上传</a></li>
+    <li><a href="#home3" data-toggle="tab">论文评分</a></li>
     </ul>
 
 
@@ -220,183 +220,137 @@ var AllStr1 = ""
     <div class="tab-pane fade in active" id="home1">
     <p><center>注：类别定义为三层！</center></p><!--<<biaoqian 1>>-->
 
-    <div class="dtree container">
-    <p><a href="javascript: d.openAll();"><h4>open all</a> | <a href="javascript: d.closeAll();">closs all</h4></a></p>
+    <div class="container">
 
-    <script type="text/javascript">
+        <div class="dtree col-sm-4">
+        <p><a href="javascript: d.openAll();"><h4>open all</a> | <a href="javascript: d.closeAll();">closs all</h4></a></p>
+
+        <script type="text/javascript">
        
         d = new dTree('d');
         d.add(0,-1,' ');
         <?php foreach ($types as $value) :?>
-              d.add("<?php echo $value->typeid?>","<?php echo $value->parenttype?>","<?php echo $value->typename?>",'manage.html');
+              d.add("<?php echo $value->typeid?>","<?php echo $value->parenttype?>","<?php echo $value->typename?>",'');
               <?php endforeach ;?>
         
         d.config.folderLinks=false;  
         document.write(d);
         
-    </script>
-    </div>
+        </script>
+        </div>
+
+
+            <form class="form-horizontal col-sm-8">
+            <fieldset>
+                <div id="legend" class="">
+                    <legend class="">添加新的类别</legend>
+                </div>
+            <form action="/seproject/index.php/addtype/addtype1" method="post">
+            <div class="row">
+                <div class="control-group">
+                    <!-- Text input-->
+                        <label class="col-sm-2 control-label" for="input01">定义第一类别</label>
+                        <div class="col-sm-6 controls">
+                                <input placeholder="" class="input-xlarge" type="text" name="typename">
+                                <p class="help-block"></p>
+                        </div>
+                </div>
+
+                <div class="control-group">
+                        <label class="control-label"></label>
+                    <!-- Button -->
+                        <div class="col-sm-2 controls">
+                                <button class="btn btn-info" type="submit">添加</button>
+                        </div>
+                </div>
+            </div>
+            </form>
+        <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
+        <form action="/seproject/index.php/addtype/addtype2" method="post">
+        <div class="row">
+                    <div class="control-group">
+                    <!-- Text input-->
+                        <label class="col-sm-2 control-label" for="input01">定义第二类别</label>
+                        <div class="col-sm-2 controls">
+                                <input placeholder="" class="input-xlarge" type="text" name="typename">
+                                <p class="help-block"></p>
+                        </div>
+                    </div>
+                
+                <div class="control-group">
+                    <!-- Select Basic -->
+                        <label class="col-sm-2 control-label">父类别</label>
+                        <div class="controls">
+                            <select class="col-sm-2 input-xlarge" name="parentid">
+                        <?php foreach ($types as $value) :?>
+                        <?php if ($value->typelevel==1) :?>
+                        <option value="<?php echo $value->typeid?>"><?php echo $value->typename?></option>
+                    <?php endif;?>
+                    <?php endforeach;?>
+                    </select>
+                        </div>
+                    </div>
+
+                <div class="control-group">
+                        <label class="control-label"></label>
+                    <!-- Button -->
+                        <div class="col-sm-2 controls">
+                                <button class="btn btn-info"type="submit">添加</button>
+                        </div>
+                    </div>
+        </div>
+        </form>
+        <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
+        <form action="/seproject/index.php/addtype/addtype3" method="post">
+        <div class="row">
+                    <div class="control-group">
+                    <!-- Text input-->
+                        <label class="col-sm-2 control-label" for="input01">定义第三类别</label>
+                        <div class="col-sm-2 controls">
+                                <input placeholder="" class="input-xlarge" type="text" name="typename">
+                                <p class="help-block"></p>
+                        </div>
+                    </div>
+
+                <div class="control-group">
+                    <!-- Select Basic -->
+                        <label class="col-sm-2 control-label">父类别</label>
+                        <div class="controls">
+                            <select class="col-sm-2 input-xlarge" name="parentid">
+                        <?php foreach ($types as $value) :?>
+                        <?php if ($value->typelevel==2) :?>
+                        <option value="<?php echo $value->typeid?>">
+                            <?php foreach ($types as $pvalue) :?>
+                            <?php if (($pvalue->typeid)==($value->parenttype)) :?>
+                            <?php echo $pvalue->typename?>
+                            <?php echo "-"?>
+                        <?php endif;?>
+                        <?php endforeach;?>
+                        <?php echo $value->typename?></option>
+                    <?php endif;?>
+                    <?php endforeach;?>
+                    </select>
+                        </div>
+                    </div>
+
+                <div class="control-group">
+                        <label class="control-label"></label>
+                        <!-- Button -->
+                        <div class="col-sm-2 controls">
+                                <button class="btn btn-info">添加</button>
+                        </div>
+                    </div>
+        </div>
+        </form>
+            </fieldset>
+        </form>
+
+    </div> 
+
     </div>
 
     <div class="tab-pane fade" id="home2">
-    <p><center>注：类别定义为三层！</center></p><!--<<biaoqian 2     >>-->
-
-    <div class="container">
-        <form class="form-horizontal" role="form" method="post" action="/seproject/index.php/addtype/addtype1">
-            <div class="form-group">
-                <label for="input1" class="col-sm-4 control-label">添加第1类</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="input1" placeholder="" name="typename">
-                </div>
-            </div>
-  
-
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-8">
-                <button type="submit" class="btn btn-info">确认</button>
-                </div>
-            </div>
-        </form>
-
-        <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
-        <form class="form-horizontal" role="form" method="post" action="/seproject/index.php/addtype/addtype2">
-            <div class="form-group">
-                <label for="input2" class="col-sm-4 control-label">添加第2类</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="input1" placeholder="" name ="typename">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="input21" class="col-sm-4 control-label">所属父类</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="input21" placeholder="" name ="parentname">
-                </div>
-            </div> 
-
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-8">
-                <button type="submit" class="btn btn-info">确认</button>
-                </div>
-            </div>
-        </form>
-
-        <HR WIDTH=100% SIZE=8 ALIGN=LEFT NOSHADE>
-        <form class="form-horizontal" role="form" method="post" action="/seproject/index.php/addtype/addtype3">
-            <div class="form-group">
-                <label for="input3" class="col-sm-4 control-label">添加第3类</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="input3" placeholder="" name="typename">
-                </div>
-            </div>
-  
-
-            <div class="form-group">
-                <label for="input32" class="col-sm-4 control-label">所属父类</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="input32" placeholder="" name="parentname">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-8">
-                <button type="submit" class="btn btn-info">确认</button>
-                </div>
-            </div>
-
-        </form>
-    </div>
-
-
-<!--    <form class="form-horizontal container" role="form">
-
-        <div class="form-group row">
-            <label class="col-sm-4 control-label">类别1</label>
-            <div class="controls">
-                            <select class="col-sm-4 input-xlarge">
-                                <?php foreach ($types as $value) :?>
-                                    <?php if ($value->typelevel==1) :?>
-                                    <option><?php echo $value->typename ?></option>
-                                    <?php endif ;?>
-                                <?php endforeach  ;?>
-                            </select>
-                    </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-4 controls checkbox">
-                    <label>
-                    <input type="checkbox" id="blankCheckbox" value="option1">
-            </label>
-                        <input class="form-control" type="text" placeholder="未找到类别？输入添加类别">
-                    </div>
-        </div>
-
-        <HR WIDTH=100% SIZE=4 ALIGN=LEFT NOSHADE>
-
-        <div class="form-group row">
-            <label class="col-sm-4 control-label">类别2</label>
-                <div class="controls">
-                            <select class="col-sm-4 input-xlarge">
-                                
-                                <?php foreach ($types as $value) :?>
-                                    <?php if ($value->typelevel==2) :?>
-                                    <option><?php echo $value->typename ?></option>
-                                    <?php endif ;?>
-                                <?php endforeach  ;?>
-                </select>
-                    </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-4 controls checkbox">
-                    <label>
-                    <input type="checkbox" id="blankCheckbox" value="option2">
-            </label>
-                        <input class="form-control" type="text" placeholder="未找到类别？输入添加类别">
-                    </div>
-        </div>
-
-        <HR WIDTH=100% SIZE=4 ALIGN=LEFT NOSHADE>
-
-        <div class="form-group row">
-            <label class="col-sm-4 control-label">类别3</label>
-            <div class="controls">
-                            <select class="col-sm-4 input-xlarge">
-                    <?php foreach ($types as $value) :?>
-                                    <?php if ($value->typelevel==3) :?>
-                                    <option><?php echo $value->typename ?></option>
-                                    <?php endif ;?>
-                                <?php endforeach  ;?>
-                </select>
-                    </div>   
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-4 control-label"></label>
-            <div class="col-sm-4 controls checkbox">
-                    <label>
-                    <input type="checkbox" id="blankCheckbox" value="option3">
-            </label>
-                        <input class="form-control" type="text" placeholder="未找到类别？输入添加类别">
-                    </div>
-        </div>
- 
-
-        <HR WIDTH=100% SIZE=4 ALIGN=LEFT NOSHADE>
-        <div class="form-group row">
-            <div class="row">
-                <label class="col-sm-4 control-label"></label>
-                <button type="submit" class="col-sm-0 btn btn-primary">确认添加</button>
-            </div>
-        </div>
-    </form> -->
     
-    </div>
-
-    <div class="tab-pane fade" id="home3">
-    <p><center>注：类别定义为三层！</center></p><!--<<biaoqian 3>>-->
-
-
         <form  class="form-horizontal  container"  action='/seproject/index.php/papermanage/upload' method ="post"enctype="multipart/form-data">
       
                 <div class="control-group row">
@@ -411,13 +365,34 @@ var AllStr1 = ""
 
                 <div class="control-group row">
                     <!-- Text input-->
-                        <label class="col-sm-4 control-label" for="input01">作者</label>
+                        <label class="col-sm-4 control-label" for="input01">第一作者</label>
                         <div class="controls">
                             <input placeholder="" class="col-sm-4 input-xlarge" type="text" name ="author">
                             <p class="help-block"></p>
                         </div>
                         <div class="col-sm-4"></div>
                     </div>
+                
+                <div class="control-group row">
+                    <!-- Text input-->
+                        <label class="col-sm-4 control-label" for="input01">第二作者</label>
+                        <div class="controls">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name ="authortwo">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
+                <div class="control-group row">
+                    <!-- Text input-->
+                        <label class="col-sm-4 control-label" for="input01">第三作者</label>
+                        <div class="controls">
+                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name ="authorthree">
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
 
                 <div class="control-group row">
                     <!-- Text input-->
@@ -470,37 +445,35 @@ var AllStr1 = ""
                         <div class="col-sm-4"></div>
                     </div>
 
-
                     <div class="control-group row">
-                    <!-- Text input-->
-                        <label class="col-sm-4 control-label" for="input01">第一分类</label>
+                    <!-- Select Basic -->
+                        <label class="col-sm-4 control-label">添加所属类别</label>
                         <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="type1">
-                            <p class="help-block"></p>
-                        </div>
-                        <div class="col-sm-4"></div>
+                            <select class="col-sm-4 input-xlarge" name ="typeid">
+                        <?php foreach ($types as $value) :?>
+                        <?php if ($value->typelevel==3) :?>
+                        <option value="<?php echo $value->typeid?>">
+                            <?php foreach ($types as $pvalue) :?>
+                            <?php if (($pvalue->typeid)==($value->parenttype)) :?>
+                            
+
+                            <?php foreach ($types as $ppvalue) :?>
+                            <?php if (($ppvalue->typeid)==($pvalue->parenttype)) :?>
+                            <?php echo $ppvalue->typename?>
+                            <?php echo "-"?>
+                        <?php endif;?>
+                        <?php endforeach;?>
+
+                        <?php echo $pvalue->typename?>
+                            <?php echo "-"?>
+
+                        <?php endif;?>
+                        <?php endforeach;?>
+                        <?php echo $value->typename?></option>
+                    <?php endif;?>
+                    <?php endforeach;?>
+                            </select>
                     </div>
-
-
-                    <div class="control-group row">
-                    <!-- Text input-->
-                        <label class="col-sm-4 control-label" for="input01">第二分类</label>
-                        <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="type2">
-                            <p class="help-block"></p>
-                        </div>
-                        <div class="col-sm-4"></div>
-                    </div>
-
-
-                    <div class="control-group row">
-                    <!-- Text input-->
-                        <label class="col-sm-4 control-label" for="input01">第三分类</label>
-                        <div class="controls">
-                            <input placeholder="" class="col-sm-4 input-xlarge" type="text" name="type3">
-                            <p class="help-block"></p>
-                        </div>
-                        <div class="col-sm-4"></div>
                     </div>
 
                 <div class="control-group row">
@@ -540,7 +513,53 @@ var AllStr1 = ""
 
         </form>-->
 
+
     </div>
+
+    <div class="tab-pane fade" id="home3">
+
+
+        <form class="form-inline container" role="form">
+        <center>
+        <div class="form-group">
+                <label class="sr-only">Name</label>
+                <p class="form-control-static">待查作者</p>
+        </div>
+        <div class="form-group">
+                <label for="inputname" class="sr-only">Input</label>
+                <input type="text" class="form-control" id="inputname" >
+        </div>
+        
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">查询</button>
+        </center>
+
+        
+        </form> 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+
+        <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+
+                <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">分数如下:</h4>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+                </div>
+        </div>
+        </div>
+        </div>
+
+    </div>
+
    </div>
 
 

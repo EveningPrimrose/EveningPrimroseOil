@@ -42,33 +42,34 @@
                 </div>
             	<!-- Table -->
             	<!--<input type="text" name="test1" value="默认值" onfocus="if(this.value=='默认值'){this.value=''}" />-->
+              <form action="/seproject/index.php/papermanage/revise/<?php echo $papernumber?>" method="post">
             	<table class="table table-hover table-bordered">
 
              	<tr class="warning"><td>标题</td></tr>
-            		<tr><td><input type="text" name="test1" value="<?php echo $headline?>" > </td></tr>
+            		<tr><td><input type="text" name="headline" value="<?php echo $headline?>" > </td></tr>
 
                 	<tr class="warning"><td>作者</td></tr>
-                	<tr><td><input type="text" name="test2" value="<?php echo $author?>"  > </td></tr>
+                	<tr><td><input type="text" name="author" value="<?php echo $author?>"  > </td></tr>
 
                 	<tr class="warning"><td>发表刊物</td></tr>
-                	<tr><td><input type="text" name="test3" value="<?php echo $origin?>" ></td></tr>
+                	<tr><td><input type="text" name="origin" value="<?php echo $origin?>" ></td></tr>
 
                 	<tr class="warning"><td>出版年份</td></tr>
-                	<tr><td><input type="text" name="test4" value="<?php echo $year?>" ></td></tr>
+                	<tr><td><input type="text" name="year" value="<?php echo $year?>" ></td></tr>
 
                 	<tr class="warning"><td>出版月份</td></tr>
-                	<tr><td><input type="text" name="test5" value="<?php echo $month?>" ></td></tr>
+                	<tr><td><input type="text" name="month" value="<?php echo $month?>" ></td></tr>
 
                 	<tr class="warning"><td>关键字</td></tr>
-                	<tr><td><input type="text" name="test6" value="<?php echo $keywords?>" ></td></tr>
+                	<tr><td><input type="text" name="keyword" value="<?php echo $keywords?>" ></td></tr>
 
                 	<tr class="warning"><td>摘要</td></tr>
                 	<tr><td>
-                		<textarea class="form-control" rows="3">
+                		<textarea class="form-control" rows="3"  name="summary">
                 			<?php echo $summary?>
                 		</textarea>
                 	</td></tr>
-
+                  <!-- 修改所属分类 -->
                 	<tr class="warning"><td>所属类别</td></tr>
                 	<tr><td>
                 		<input type="text" name="test81" value="<?php echo $type1?>" >
@@ -82,28 +83,9 @@
       		<tr>
         		<td>
         		<!-- Button trigger modal -->
-        		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal07">修改信息</button>
+        		<button type="submit" class="btn btn-info">修改信息</button>
         		<!-- Modal -->
-        		<div class="modal fade" id="myModal07" tabindex="-1" role="dialog" aria-labelledby="myModalLabel07" aria-hidden="true">
-            		<div class="modal-dialog">
-
-              	<div class="modal-content">
-
-                  		<div class="modal-header">
-                      			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                      			<h4 class="modal-title" id="myModalLabel07">修改信息</h4>
-                  		</div>
-                  		<div class="modal-body">
-                  			<center><h2>确认修改 该论文信息 ?? !!</h2></center>
-                  		</div>
-                  		<div class="modal-footer">
-                      			<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                      		<button type="button" class="btn btn-info">确认</button>
-                  		</div>
-              	</div>
-
-            		</div>
-        		</div>
+        		
         		</td>
       		</tr>
 
@@ -139,6 +121,7 @@
       		</tr>
 
             	</table>
+            </form>
           	</div>
           	</div>
           <div class="col-sm-2"></div>

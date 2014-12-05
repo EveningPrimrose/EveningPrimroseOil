@@ -18,13 +18,30 @@
 
             $this->load->library('session');
             $data['username']=$this->session->userdata('username');
+            //--------------------------------------GET TYPE
+            $typeid=$this->input->post('typeid');
+            $this->load->database();
+            $sql="select * from types where typeid=".$typeid;
+            $res=$this->db->query($sql);
+            $type3=$res->result();
+            $sql="select * from types where typeid=".$type3[0]->parenttype;
+            $res=$this->db->query($sql);
+            $type2=$res->result();
+            $sql="select * from types where typeid=".$type2[0]->parenttype;
+            $res=$this->db->query($sql);
+            $type1=$res->result();
+
+
+
+
+
             //--------------------------------------ADD
             $username=$data['username'];
-            $type1=$this->input->post('type1');
-            $type2=$this->input->post('type2');
-            $type3=$this->input->post('type3');
+            
             $headline=$this->input->post('headline');
             $author=$this->input->post('author');
+            $authortwo=$this->input->post('authortwo');
+            $authorthree=$this->input->post('authorthree');
             $origin=$this->input->post('origin');
             $keywords=$this->input->post('keywords');
             $summary=$this->input->post('summary');
@@ -33,18 +50,25 @@
 
 
             $this->load->database();
-            $sql="insert into papers (owner,type1,type2,type3,headline,author,origin,keywords,summary,year,month,type,location) values ('".$username."','".$type1."','".$type2."','".$type3."','".$headline."','".$author."','".$origin."','".$keywords."','".$summary."',".$year.",".$month.",'thesis','".$uploaddata['file_name']."') ";
+            $sql="insert into papers (owner,type1,type2,type3,headline,author,authortwo,authorthree,origin,keywords,summary,year,month,type,location) values ('".$username."','".$type1[0]->typename."','".$type2[0]->typename."','".$type3[0]->typename."','".$headline."','".$author."','".$authortwo."','".$authorthree."','".$origin."','".$keywords."','".$summary."',".$year.",".$month.",'thesis','".$uploaddata['file_name']."') ";
             $res=$this->db->query($sql);
-            //-------------------------------------
+            //-------------------------------------ADD author the second and the third author
+            
+
+
+
+
+
+
+
+
+            //-----------------------------------
 
             $this->load->database();
             $sql="select * from types";
             $res=$this->db->query($sql);
             $types=$res->result();
-    //        var_dump($typetable);
-        //    foreach ($typetable as $key => $value) {
-        //        # code...
-        //    }
+    
 
             
             $data['types']=$types;
@@ -87,10 +111,29 @@
             $data['username']=$this->session->userdata('username');
             $this->load->database();
 
-            $changecol=$this->uri->segment(4);
-            $changenumber=$this->uri->segment(3);
-            $changeval=$this->input->post('value');
-            //改为修改语句
+            
+            $number=$this->uri->segment(3);
+            $newheadline=$this->input->post('headline');
+            $newauthor=$this->input->post('author');
+            $neworigin=$this->input->post('origin');
+            $newyear=$this->input->post('year');
+            $newmonth=$this->input->post('month');
+            $newkeyword=$this->input->post('keyword');
+            $newsummary=$this->input->post('summary');
+            
+
+            //修改分类
+
+            $sql="update papers set ".$changecol."= '".$changeval."' where papernumber=".$changenumber;
+            $res=$this->db->query($sql);
+            $sql="update papers set ".$changecol."= '".$changeval."' where papernumber=".$changenumber;
+            $res=$this->db->query($sql);
+            $sql="update papers set ".$changecol."= '".$changeval."' where papernumber=".$changenumber;
+            $res=$this->db->query($sql);
+            $sql="update papers set ".$changecol."= '".$changeval."' where papernumber=".$changenumber;
+            $res=$this->db->query($sql);
+            $sql="update papers set ".$changecol."= '".$changeval."' where papernumber=".$changenumber;
+            $res=$this->db->query($sql);
             $sql="update papers set ".$changecol."= '".$changeval."' where papernumber=".$changenumber;
             $res=$this->db->query($sql);
 
